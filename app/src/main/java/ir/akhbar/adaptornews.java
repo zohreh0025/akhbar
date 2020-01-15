@@ -10,6 +10,11 @@ import android.view.ViewGroup;
  */
 
 public class adaptornews extends RecyclerView.Adapter<newsviewholder> {
+    private NewsData[] news;
+    public adaptornews(NewsData[] news){
+        this.news=news;
+    }
+
 
     @Override
     public newsviewholder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -21,11 +26,12 @@ public class adaptornews extends RecyclerView.Adapter<newsviewholder> {
 
     @Override
     public void onBindViewHolder(newsviewholder holder, int position) {
-     holder.bind("khosh amadid");
+        NewsData Akhbar=news[position];
+        holder.bind(Akhbar);
     }
 
     @Override
     public int getItemCount() {
-        return 30;
+        return news.length;
     }
 }

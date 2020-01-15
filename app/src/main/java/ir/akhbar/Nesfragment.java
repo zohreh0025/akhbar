@@ -25,6 +25,11 @@ public class Nesfragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         RecyclerView  newsrecycler = (RecyclerView) view.findViewById(R.id.recycleview);
         newsrecycler.setLayoutManager(new LinearLayoutManager(getContext()));
-        newsrecycler.setAdapter(new adaptornews());
+        NewsData [] news=new NewsData[]{
+                new NewsData("salam","salamdec","123"),
+                new NewsData("hello","hellodec","123")};
+        adaptornews adapter=new adaptornews(news);
+        newsrecycler.setAdapter(adapter);
+
     }
 }

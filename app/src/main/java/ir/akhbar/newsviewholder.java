@@ -11,8 +11,8 @@ public class newsviewholder extends RecyclerView.ViewHolder{
         super(itemView);
         titell= (TextView) itemView.findViewById(R.id.titell1);
     }
-    public void bind(String titletxt){
-        titell.setText(titletxt);
+    public void bind(NewsData data){
+        titell.setText(data.getTitle());
     }
 
 }

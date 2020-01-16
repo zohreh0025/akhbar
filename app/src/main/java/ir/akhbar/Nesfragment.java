@@ -25,10 +25,19 @@ public class Nesfragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         RecyclerView  newsrecycler = (RecyclerView) view.findViewById(R.id.recycleview);
         newsrecycler.setLayoutManager(new LinearLayoutManager(getContext()));
-        NewsData [] news=new NewsData[]{
-                new NewsData("salam","salamdec","123"),
-                new NewsData("hello","hellodec","123")};
-        adaptornews adapter=new adaptornews(news);
+        final NewsData [] news=new NewsData[]{
+                new NewsData("salam","salamdec","https://raw.githubusercontent.com/PHELAT/Poolakey/master/asset/Poolakey.jpg"),
+                new NewsData("hello","hellodec","https://raw.githubusercontent.com/PHELAT/Poolakey/master/asset/Poolakey.jpg")};
+        adaptornews adapter=new adaptornews(news, new ItemClick() {
+            @Override
+            public void OnClick(NewsData data) {
+               getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                       .addToBackStack(null)
+                        .replace(R.id.fragment_layout, new NewsDitail())
+                        .commit();
+            }
+        });
         newsrecycler.setAdapter(adapter);
 
     }

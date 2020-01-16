@@ -11,15 +11,17 @@ import android.view.ViewGroup;
 
 public class adaptornews extends RecyclerView.Adapter<newsviewholder> {
     private NewsData[] news;
-    public adaptornews(NewsData[] news){
+    private ItemClick itemclick;
+    public adaptornews(NewsData[] news,ItemClick itemclick){
         this.news=news;
+        this.itemclick=itemclick;
     }
 
 
     @Override
     public newsviewholder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemview= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_news_list,parent,false);
-        newsviewholder viewholder=new newsviewholder(itemview);
+        newsviewholder viewholder=new newsviewholder(itemview,itemclick);
         return viewholder;
 
     }
